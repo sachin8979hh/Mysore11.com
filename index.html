@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mysore11 - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>Mysore11</h1>
+    <button id="googleLogin">Login with Google</button>
+    <p id="status"></p>
+  </div>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mysore11 – Matches</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>📅 Upcoming Matches</h2>
+    <div id="matchList" class="match-list"></div>
+  </div>
+
+  <script type="module" src="match.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Team – Mysore11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Create Your Team</h2>
+    <p><strong>Credits Left:</strong> <span id="creditsLeft">100</span></p>
+    <p><strong>Selected:</strong> <span id="selectedCount">0</span>/11</p>
+    
+    <div class="role-tabs">
+      <button onclick="filterRole('ALL')">All</button>
+      <button onclick="filterRole('WK')">WK</button>
+      <button onclick="filterRole('BAT')">BAT</button>
+      <button onclick="filterRole('AR')">AR</button>
+      <button onclick="filterRole('BWL')">BWL</button>
+    </div>
+
+    <div id="playerList" class="player-list"></div>
+
+    <div id="captainSection" style="display:none;">
+      <h3>Select Captain & Vice Captain</h3>
+      <select id="captainSelect"></select>
+      <select id="viceCaptainSelect"></select>
+      <button onclick="saveTeam()">✅ Save Team</button>
+      <p id="saveStatus"></p>
+    </div>
+  </div>
+
+  <script type="module" src="team.js"></script>
+</body>
+</html>
+localStorage.setItem("uid", user.uid);  // Add in auth.js after login
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Join Contest – Mysore11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Contests</h2>
+    <div id="contestList"></div>
+  </div>
+
+  <script type="module" src="contest.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Contests – Mysore11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>My Contests</h2>
+    <div id="myContestList"></div>
+  </div>
+
+  <script type="module" src="mycontests.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaderboard – Mysore11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Leaderboard</h2>
+    <div id="leaderboardList"></div>
+  </div>
+
+  <script type="module" src="leaderboard.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel – Mysore11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Admin Panel – Update Player Points</h2>
+
+    <input type="text" id="matchId" placeholder="Match ID" />
+    <select id="playerList"></select>
+    <input type="number" id="points" placeholder="Points" />
+
+    <button onclick="updatePoints()">✅ Update Points</button>
+    <div id="status"></div>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wallet – Mysore11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>My Wallet</h2>
+    <p><strong>Balance: ₹<span id="balance">0</span></strong></p>
+
+    <input type="number" id="amount" placeholder="Enter Amount to Add">
+    <button onclick="addMoney()">💰 Add Money</button>
+
+    <h3>Transactions</h3>
+    <ul id="txnList"></ul>
+  </div>
+
+  <script type="module" src="wallet.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard – Mysore11</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>🛠️ Admin Dashboard – Mysore11</h2>
+
+    <section>
+      <h3>📅 Create Match</h3>
+      <input type="text" id="matchId" placeholder="Match ID (e.g., match1)">
+      <input type="text" id="teamA" placeholder="Team A">
+      <input type="text" id="teamB" placeholder="Team B">
+      <input type="datetime-local" id="matchTime">
+      <button onclick="createMatch()">➕ Create Match</button>
+    </section>
+
+    <section>
+      <h3>👥 Add Player</h3>
+      <input type="text" id="playerName" placeholder="Player Name">
+      <input type="text" id="playerTeam" placeholder="Team (A/B)">
+      <input type="text" id="playerRole" placeholder="Role (BAT/BOWL/AR/WK)">
+      <button onclick="addPlayer()">➕ Add Player</button>
+    </section>
+
+    <section>
+      <h3>🎯 Create Contest</h3>
+      <input type="text" id="contestName" placeholder="Contest Name">
+      <input type="text" id="forMatchId" placeholder="Match ID">
+      <input type="number" id="entryFee" placeholder="Entry Fee ₹">
+      <input type="number" id="maxSpots" placeholder="Total Spots">
+      <button onclick="createContest()">➕ Create Contest</button>
+    </section>
+
+    <section>
+      <h3>🏆 Distribute Prize (Top 1)</h3>
+      <input type="text" id="prizeMatch" placeholder="Match ID">
+      <input type="text" id="prizeContest" placeholder="Contest ID">
+      <input type="number" id="prizeAmount" placeholder="Prize Amount ₹">
+      <button onclick="distributePrize()">🎁 Distribute</button>
+    </section>
+  </div>
+
+  <script type="module" src="admin-dashboard.js"></script>
+</body>
+</html>
+<input type="number" id="amount" placeholder="Enter Amount to Add">
+<button onclick="startPayment()">💳 Pay with Razorpay</button>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/firebase-messaging-sw.js')
+      .then(() => console.log("Service Worker Registered"));
+  }
+</script>
+const admin = require("firebase-admin");
+admin.initializeApp({ credential: admin.credential.cert(require("./serviceAccount.json")) });
+
+async function sendNotificationToUser(uid, title, body) {
+  const doc = await admin.firestore().collection("notificationTokens").doc(uid).get();
+  const token = doc.data().token;
+
+  const message = {
+    notification: { title, body },
+    token: token,
+  };
+
+  await admin.messaging().send(message);
+}
+{
+  
